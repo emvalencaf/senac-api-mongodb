@@ -1,85 +1,34 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Atividade 2 - Desafio - Desenvolvimento de API para Operações de CRUD
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Instruções
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Desenvolva sua própria API em Node.JS. Você deve implementar todas as operações de CRUD para um entidade de sua preferência. Lembre-se de instalar o Node.JS e o Mongo DB para isso.
+Você deve testar as rotas via Postman ou Insomnia.
 
-## Description
+## Solução
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Sobre a solução
 
-## Project setup
+A solução foi desenvolvida no *framework* Nest.JS o que facilitou no desenvolvimento de camadas na aplicações, as quais são:
 
-```bash
-$ npm install
-```
+1. **Controller**: correspondendo ao *endpoint* a ser acessado pelo usuário - é nessa camada em que é aplicada a lógica de negócio
+2. **Service**: corresponde a aplicação da lógica necessária para a operação do CRUD.
+3. **Repository**: corresponde, nesse projeto denominada como *schema*, a camada da aplicação que faz a chamadas a API do banco de dados (no caso, o *MongoDB*).
 
-## Compile and run the project
+Além dessas camadas, cada camada é dividida em módulos, por exemplo: o Módulo Usuários (*users*) possui os `controller`, `services` e `repositories`, relacionados aos usuários.
 
-```bash
-# development
-$ npm run start
+### Como usar a solução
 
-# watch mode
-$ npm run start:dev
+1. Em primeiro lugar é necessário abrir o terminal na raiz do projeto:
+![Print em como abrir um terminal no VS Code](/docs/print-open-terminal.png)
+2. O próximo passo é criar um arquivo `.env` na raiz do projeto e nele configurar a variável `DB_URL` que deverá apontar para o banco de dados MongoDB
+![Print de como criar um arquivo .env](/docs/print-create-env-file.png)
+![Print de como configurar o arquivo .env](/docs/print-set-env-var.png)
+- **Observação**: Durante o desenvolvimento foi criado um banco de dados MongoDB na nuvem usando o serviço gratuito do [MongoDB](https://www.mongodb.com/)
+3. Em seguida é preciso instalar localmente as dependências listadas no `package.json` usando o comando `npm i`:
+![Print de como baixar as dependências localmente](/docs/print-install-deps.png)
+4. Por fim, execute no terminal o comando `npm run start:dev` para subir localmente a API:
+![Print subindo localmente a API](/docs/print-exec-api.png)
+![Print mostrando como a API deve ficar quando for executada corretamente](/docs/print-run-api.png)
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### [Documentação da API](https://documenter.getpostman.com/view/21997570/2sAXjF9uss)
