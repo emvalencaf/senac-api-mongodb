@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "projeto-senac-api-mongodb",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "Atividade 2 - Desafio - Desenvolvimento de API para Operações de CRUD",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
